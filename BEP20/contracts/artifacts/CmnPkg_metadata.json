@@ -1,0 +1,167 @@
+{
+	"compiler": {
+		"version": "0.5.16+commit.9c3226ce"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "CROSS_CHAIN_KEY_PREFIX",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "data2",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "data3",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "dataX",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "payload",
+						"type": "bytes"
+					}
+				],
+				"name": "getDecodekey",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "_sequence",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_channelID",
+						"type": "uint8"
+					}
+				],
+				"name": "getGeratekey",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/demo1.sol": "CmnPkg"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Memory.sol": {
+			"keccak256": "0xffb6fe9a78280b6fb7ff33ba10b074e5fec54e0503392e10eb3b8b9141c2b652",
+			"urls": [
+				"bzz-raw://913be1863d9e0f2534e1a2f2b7639688f1c38103dcd03a91d608977fd9dc6e89",
+				"dweb:/ipfs/QmNRh2GXTYgjQj8CL5kf6MJbWdC85S5msULXiaqvUJX9Dg"
+			]
+		},
+		"contracts/demo1.sol": {
+			"keccak256": "0x8c5cf48dc32805f63e6435b6718fb14c9e4d95fff19e2436fa175e1b1bb46b30",
+			"urls": [
+				"bzz-raw://2afc892aeb3e4526c4a254e0873e5cfa1332ba5b4216f317dc4c0ae94141cc7c",
+				"dweb:/ipfs/QmZQvhboqRNMBxvRxtC3hK5i2mT21AszSmMZdxQ7zKKpwy"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,555 @@
+{
+	"id": "376a1cbe8ae73644ac285823f6f02b1b",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.5.16",
+	"solcLongVersion": "0.5.16+commit.9c3226ce",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/demo1.sol": {
+				"content": "pragma solidity >0.4.0 <0.9.0;\r\n\r\ncontract Demo1{\r\n    function concat(bytes memory _preBytes, bytes memory _postBytes) internal pure returns (bytes memory)\r\n    {\r\n        bytes memory tempBytes;\r\n\r\n        assembly {\r\n        // Get a location of some free memory and store it in tempBytes as\r\n        // Solidity does for memory variables.\r\n            tempBytes := mload(0x40)\r\n\r\n        // Store the length of the first bytes array at the beginning of\r\n        // the memory for tempBytes.\r\n            let length := mload(_preBytes)\r\n            mstore(tempBytes, length)\r\n\r\n        // Maintain a memory counter for the current write location in the\r\n        // temp bytes array by adding the 32 bytes for the array length to\r\n        // the starting location.\r\n            let mc := add(tempBytes, 0x20)\r\n        // Stop copying when the memory counter reaches the length of the\r\n        // first bytes array.\r\n            let end := add(mc, length)\r\n\r\n            for {\r\n            // Initialize a copy counter to the start of the _preBytes data,\r\n            // 32 bytes into its memory.\r\n                let cc := add(_preBytes, 0x20)\r\n            } lt(mc, end) {\r\n            // Increase both counters by 32 bytes each iteration.\r\n                mc := add(mc, 0x20)\r\n                cc := add(cc, 0x20)\r\n            } {\r\n            // Write the _preBytes data into the tempBytes memory 32 bytes\r\n            // at a time.\r\n                mstore(mc, mload(cc))\r\n            }\r\n\r\n        // Add the length of _postBytes to the current length of tempBytes\r\n        // and store it as the new length in the first 32 bytes of the\r\n        // tempBytes memory.\r\n            length := mload(_postBytes)\r\n            mstore(tempBytes, add(length, mload(tempBytes)))\r\n\r\n        // Move the memory counter back from a multiple of 0x20 to the\r\n        // actual end of the _preBytes data.\r\n            mc := end\r\n        // Stop copying when the memory counter reaches the new combined\r\n        // length of the arrays.\r\n            end := add(mc, length)\r\n\r\n            for {\r\n                let cc := add(_postBytes, 0x20)\r\n            } lt(mc, end) {\r\n                mc := add(mc, 0x20)\r\n                cc := add(cc, 0x20)\r\n            } {\r\n                mstore(mc, mload(cc))\r\n            }\r\n\r\n        // Update the free-memory pointer by padding our last write location\r\n        // to 32 bytes: add 31 bytes to the end of tempBytes to move to the\r\n        // next 32 byte block, then round down to the nearest multiple of\r\n        // 32. If the sum of the length of the two arrays is zero then add\r\n        // one before rounding down to leave a blank 32 bytes (the length block with 0).\r\n            mstore(0x40, and(\r\n            add(add(end, iszero(add(length, mload(_preBytes)))), 31),\r\n            not(31) // Round down to the nearest 32 bytes.\r\n            ))\r\n        }\r\n\r\n        return tempBytes;\r\n    }\r\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			}
+		}
+	},
+	"output": {
+		"contracts": {
+			"contracts/demo1.sol": {
+				"Demo1": {
+					"abi": [],
+					"devdoc": {
+						"methods": {}
+					},
+					"evm": {
+						"assembly": "    /* \"contracts/demo1.sol\":34:2929  contract Demo1{\r... */\n  mstore(0x40, 0x80)\n  callvalue\n    /* \"--CODEGEN--\":8:17   */\n  dup1\n    /* \"--CODEGEN--\":5:7   */\n  iszero\n  tag_1\n  jumpi\n    /* \"--CODEGEN--\":30:31   */\n  0x00\n    /* \"--CODEGEN--\":27:28   */\n  dup1\n    /* \"--CODEGEN--\":20:32   */\n  revert\n    /* \"--CODEGEN--\":5:7   */\ntag_1:\n    /* \"contracts/demo1.sol\":34:2929  contract Demo1{\r... */\n  pop\n  dataSize(sub_0)\n  dup1\n  dataOffset(sub_0)\n  0x00\n  codecopy\n  0x00\n  return\nstop\n\nsub_0: assembly {\n        /* \"contracts/demo1.sol\":34:2929  contract Demo1{\r... */\n      mstore(0x40, 0x80)\n      0x00\n      dup1\n      revert\n\n    auxdata: 0xa265627a7a7231582077de0604b53a74273651c42849043805a10b43604e656f08435fcaf4984bd0ca64736f6c63430005100032\n}\n",
+						"bytecode": {
+							"linkReferences": {},
+							"object": "6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a7231582077de0604b53a74273651c42849043805a10b43604e656f08435fcaf4984bd0ca64736f6c63430005100032",
+							"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x3E DUP1 PUSH1 0x1D PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH6 0x627A7A723158 KECCAK256 PUSH24 0xDE0604B53A74273651C42849043805A10B43604E656F0843 0x5F 0xCA DELEGATECALL SWAP9 0x4B 0xD0 0xCA PUSH5 0x736F6C6343 STOP SDIV LT STOP ORIGIN ",
+							"sourceMap": "34:2895:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;34:2895:0;;;;;;;"
+						},
+						"deployedBytecode": {
+							"linkReferences": {},
+							"object": "6080604052600080fdfea265627a7a7231582077de0604b53a74273651c42849043805a10b43604e656f08435fcaf4984bd0ca64736f6c63430005100032",
+							"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH6 0x627A7A723158 KECCAK256 PUSH24 0xDE0604B53A74273651C42849043805A10B43604E656F0843 0x5F 0xCA DELEGATECALL SWAP9 0x4B 0xD0 0xCA PUSH5 0x736F6C6343 STOP SDIV LT STOP ORIGIN ",
+							"sourceMap": "34:2895:0:-;;;;;"
+						},
+						"gasEstimates": {
+							"creation": {
+								"codeDepositCost": "12400",
+								"executionCost": "66",
+								"totalCost": "12466"
+							},
+							"internal": {
+								"concat(bytes memory,bytes memory)": "infinite"
+							}
+						},
+						"legacyAssembly": {
+							".code": [
+								{
+									"begin": 34,
+									"end": 2929,
+									"name": "PUSH",
+									"value": "80"
+								},
+								{
+									"begin": 34,
+									"end": 2929,
+									"name": "PUSH",
+									"value": "40"
+								},
+								{
+									"begin": 34,
+									"end": 2929,
+									"name": "MSTORE"
+								},
+								{
+									"begin": 34,
+									"end": 2929,
+									"name": "CALLVALUE"
+								},
+								{
+									"begin": 8,
+									"end": 17,
+									"name": "DUP1"
+								},
+								{
+									"begin": 5,
+									"end": 7,
+									"name": "ISZERO"
+								},
+								{
+									"begin": 5,
+									"end": 7,
+									"name": "PUSH [tag]",
+									"value": "1"
+								},
+								{
+									"begin": 5,
+									"end": 7,
+									"name": "JUMPI"
+								},
+								{
+									"begin": 30,
+									"end": 31,
+									"name": "PUSH",
+									"value": "0"
+								},
+								{
+									"begin": 27,
+									"end": 28,
+									"name": "DUP1"
+								},
+								{
+									"begin": 20,
+									"end": 32,
+									"name": "REVERT"
+								},
+								{
+									"begin": 5,
+									"end": 7,
+									"name": "tag",
+									"value": "1"
+								},
+								{
+									"begin": 5,
+									"end": 7,
+									"name": "JUMPDEST"
+								},
+								{
+									"begin": 34,
+									"end": 2929,
+									"name": "POP"
+								},
+								{
+									"begin": 34,
+									"end": 2929,
+									"name": "PUSH #[$]",
+									"value": "0000000000000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 34,
+									"end": 2929,
+									"name": "DUP1"
+								},
+								{
+									"begin": 34,
+									"end": 2929,
+									"name": "PUSH [$]",
+									"value": "0000000000000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 34,
+									"end": 2929,
+									"name": "PUSH",
+									"value": "0"
+								},
+								{
+									"begin": 34,
+									"end": 2929,
+									"name": "CODECOPY"
+								},
+								{
+									"begin": 34,
+									"end": 2929,
+									"name": "PUSH",
+									"value": "0"
+								},
+								{
+									"begin": 34,
+									"end": 2929,
+									"name": "RETURN"
+								}
+							],
+							".data": {
+								"0": {
+									".auxdata": "a265627a7a7231582077de0604b53a74273651c42849043805a10b43604e656f08435fcaf4984bd0ca64736f6c63430005100032",
+									".code": [
+										{
+											"begin": 34,
+											"end": 2929,
+											"name": "PUSH",
+											"value": "80"
+										},
+										{
+											"begin": 34,
+											"end": 2929,
+											"name": "PUSH",
+											"value": "40"
+										},
+										{
+											"begin": 34,
+											"end": 2929,
+											"name": "MSTORE"
+										},
+										{
+											"begin": 34,
+											"end": 2929,
+											"name": "PUSH",
+											"value": "0"
+										},
+										{
+											"begin": 34,
+											"end": 2929,
+											"name": "DUP1"
+										},
+										{
+											"begin": 34,
+											"end": 2929,
+											"name": "REVERT"
+										}
+									]
+								}
+							}
+						},
+						"methodIdentifiers": {}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/demo1.sol\":\"Demo1\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/demo1.sol\":{\"keccak256\":\"0xea356be760d16b645dbfd3311027071c2b0b3b172ff5a295eab422080fa4a39a\",\"urls\":[\"bzz-raw://a01bb43a689917e2c10fef6ec849a38b431b2fd5838c5e5d04a130d42ca8372c\",\"dweb:/ipfs/QmabbrPRPFtNnvTEHPGGLazY82742ibnYPSfcYrSi885Jk\"]}},\"version\":1}",
+					"userdoc": {
+						"methods": {}
+					}
+				}
+			}
+		},
+		"sources": {
+			"contracts/demo1.sol": {
+				"ast": {
+					"absolutePath": "contracts/demo1.sol",
+					"exportedSymbols": {
+						"Demo1": [
+							18
+						]
+					},
+					"id": 19,
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								">",
+								"0.4",
+								".0",
+								"<",
+								"0.9",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "0:30:0"
+						},
+						{
+							"baseContracts": [],
+							"contractDependencies": [],
+							"contractKind": "contract",
+							"documentation": null,
+							"fullyImplemented": true,
+							"id": 18,
+							"linearizedBaseContracts": [
+								18
+							],
+							"name": "Demo1",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"body": {
+										"id": 16,
+										"nodeType": "Block",
+										"src": "162:2764:0",
+										"statements": [
+											{
+												"assignments": [
+													11
+												],
+												"declarations": [
+													{
+														"constant": false,
+														"id": 11,
+														"name": "tempBytes",
+														"nodeType": "VariableDeclaration",
+														"scope": 16,
+														"src": "173:22:0",
+														"stateVariable": false,
+														"storageLocation": "memory",
+														"typeDescriptions": {
+															"typeIdentifier": "t_bytes_memory_ptr",
+															"typeString": "bytes"
+														},
+														"typeName": {
+															"id": 10,
+															"name": "bytes",
+															"nodeType": "ElementaryTypeName",
+															"src": "173:5:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_bytes_storage_ptr",
+																"typeString": "bytes"
+															}
+														},
+														"value": null,
+														"visibility": "internal"
+													}
+												],
+												"id": 12,
+												"initialValue": null,
+												"nodeType": "VariableDeclarationStatement",
+												"src": "173:22:0"
+											},
+											{
+												"externalReferences": [
+													{
+														"_preBytes": {
+															"declaration": 3,
+															"isOffset": false,
+															"isSlot": false,
+															"src": "528:9:0",
+															"valueSize": 1
+														}
+													},
+													{
+														"_postBytes": {
+															"declaration": 5,
+															"isOffset": false,
+															"isSlot": false,
+															"src": "2112:10:0",
+															"valueSize": 1
+														}
+													},
+													{
+														"tempBytes": {
+															"declaration": 11,
+															"isOffset": false,
+															"isSlot": false,
+															"src": "559:9:0",
+															"valueSize": 1
+														}
+													},
+													{
+														"_postBytes": {
+															"declaration": 5,
+															"isOffset": false,
+															"isSlot": false,
+															"src": "1699:10:0",
+															"valueSize": 1
+														}
+													},
+													{
+														"tempBytes": {
+															"declaration": 11,
+															"isOffset": false,
+															"isSlot": false,
+															"src": "1760:9:0",
+															"valueSize": 1
+														}
+													},
+													{
+														"tempBytes": {
+															"declaration": 11,
+															"isOffset": false,
+															"isSlot": false,
+															"src": "356:9:0",
+															"valueSize": 1
+														}
+													},
+													{
+														"_preBytes": {
+															"declaration": 3,
+															"isOffset": false,
+															"isSlot": false,
+															"src": "2784:9:0",
+															"valueSize": 1
+														}
+													},
+													{
+														"tempBytes": {
+															"declaration": 11,
+															"isOffset": false,
+															"isSlot": false,
+															"src": "794:9:0",
+															"valueSize": 1
+														}
+													},
+													{
+														"_preBytes": {
+															"declaration": 3,
+															"isOffset": false,
+															"isSlot": false,
+															"src": "1129:9:0",
+															"valueSize": 1
+														}
+													},
+													{
+														"tempBytes": {
+															"declaration": 11,
+															"isOffset": false,
+															"isSlot": false,
+															"src": "1731:9:0",
+															"valueSize": 1
+														}
+													}
+												],
+												"id": 13,
+												"nodeType": "InlineAssembly",
+												"operations": "{\n    tempBytes := mload(0x40)\n    let length := mload(_preBytes)\n    mstore(tempBytes, length)\n    let mc := add(tempBytes, 0x20)\n    let end := add(mc, length)\n    for {\n        let cc := add(_preBytes, 0x20)\n    }\n    lt(mc, end)\n    {\n        mc := add(mc, 0x20)\n        cc := add(cc, 0x20)\n    }\n    { mstore(mc, mload(cc)) }\n    length := mload(_postBytes)\n    mstore(tempBytes, add(length, mload(tempBytes)))\n    mc := end\n    end := add(mc, length)\n    for {\n        let cc := add(_postBytes, 0x20)\n    }\n    lt(mc, end)\n    {\n        mc := add(mc, 0x20)\n        cc := add(cc, 0x20)\n    }\n    { mstore(mc, mload(cc)) }\n    mstore(0x40, and(add(add(end, iszero(add(length, mload(_preBytes)))), 31), not(31)))\n}",
+												"src": "208:2682:0"
+											},
+											{
+												"expression": {
+													"argumentTypes": null,
+													"id": 14,
+													"name": "tempBytes",
+													"nodeType": "Identifier",
+													"overloadedDeclarations": [],
+													"referencedDeclaration": 11,
+													"src": "2909:9:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bytes_memory_ptr",
+														"typeString": "bytes memory"
+													}
+												},
+												"functionReturnParameters": 9,
+												"id": 15,
+												"nodeType": "Return",
+												"src": "2902:16:0"
+											}
+										]
+									},
+									"documentation": null,
+									"id": 17,
+									"implemented": true,
+									"kind": "function",
+									"modifiers": [],
+									"name": "concat",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 6,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 3,
+												"name": "_preBytes",
+												"nodeType": "VariableDeclaration",
+												"scope": 17,
+												"src": "71:22:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bytes_memory_ptr",
+													"typeString": "bytes"
+												},
+												"typeName": {
+													"id": 2,
+													"name": "bytes",
+													"nodeType": "ElementaryTypeName",
+													"src": "71:5:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bytes_storage_ptr",
+														"typeString": "bytes"
+													}
+												},
+												"value": null,
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 5,
+												"name": "_postBytes",
+												"nodeType": "VariableDeclaration",
+												"scope": 17,
+												"src": "95:23:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bytes_memory_ptr",
+													"typeString": "bytes"
+												},
+												"typeName": {
+													"id": 4,
+													"name": "bytes",
+													"nodeType": "ElementaryTypeName",
+													"src": "95:5:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bytes_storage_ptr",
+														"typeString": "bytes"
+													}
+												},
+												"value": null,
+												"visibility": "internal"
+											}
+										],
+										"src": "70:49:0"
+									},
+									"returnParameters": {
+										"id": 9,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 8,
+												"name": "",
+												"nodeType": "VariableDeclaration",
+												"scope": 17,
+												"src": "143:12:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bytes_memory_ptr",
+													"typeString": "bytes"
+												},
+												"typeName": {
+													"id": 7,
+													"name": "bytes",
+													"nodeType": "ElementaryTypeName",
+													"src": "143:5:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bytes_storage_ptr",
+														"typeString": "bytes"
+													}
+												},
+												"value": null,
+												"visibility": "internal"
+											}
+										],
+										"src": "142:14:0"
+									},
+									"scope": 18,
+									"src": "55:2871:0",
+									"stateMutability": "pure",
+									"superFunction": null,
+									"visibility": "internal"
+								}
+							],
+							"scope": 19,
+							"src": "34:2895:0"
+						}
+					],
+					"src": "0:2929:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

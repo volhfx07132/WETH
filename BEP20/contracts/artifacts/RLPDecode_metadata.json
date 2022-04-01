@@ -1,0 +1,37 @@
+{
+	"compiler": {
+		"version": "0.5.16+commit.9c3226ce"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/RLPDecode.sol": "RLPDecode"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/RLPDecode.sol": {
+			"keccak256": "0xe52696f0da2070940075699839ff032d969dd79f0c3c2561a3bce40271a362f4",
+			"urls": [
+				"bzz-raw://57addd0b5d72aaba118a76c6e2e91f6c7b13815eb11ab4c0b2035ebc5166cb92",
+				"dweb:/ipfs/QmQJtt7usyCySXGyr18gVikbZH6sWfzBtN9EZUr3t7pMJm"
+			]
+		}
+	},
+	"version": 1
+}

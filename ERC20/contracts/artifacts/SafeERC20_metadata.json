@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/SafeERC20.sol": "SafeERC20"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/SafeERC20.sol": {
+			"keccak256": "0x5229d5522f412db7179571a64069c304f57d711135276f10b44b9acc7b795868",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://69e9c8d9184c154d9474b5d85cbcebd6e70d2bb0903b272efc0e2e4d6eca7418",
+				"dweb:/ipfs/QmPkXzK9LN8E5HbQkNztdKUrmGQ54stYtf49Q8FmRVx7cT"
+			]
+		}
+	},
+	"version": 1
+}

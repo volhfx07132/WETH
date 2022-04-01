@@ -1,0 +1,46 @@
+{
+	"compiler": {
+		"version": "0.6.4+commit.1dca32f3"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/BEP.sol": "Context"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/BEP.sol": {
+			"keccak256": "0x5fc1d49f4d3474ed5dfa0cbb2e0168d214ee9a5108fa02f0ac857ddd42f8b0d6",
+			"urls": [
+				"bzz-raw://d30824d07e0b3ac146bad5941bc78cb0e9c6980b2aafa14a8d908d6b6e717b84",
+				"dweb:/ipfs/QmW9Dr8nHyQDUdwG7H2MPYMwrWuaEMCQCeHymc6S84VsKw"
+			]
+		}
+	},
+	"version": 1
+}

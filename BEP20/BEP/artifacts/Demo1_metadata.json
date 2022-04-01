@@ -1,0 +1,78 @@
+{
+	"compiler": {
+		"version": "0.6.4+commit.1dca32f3"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "CROSS_CHAIN_KEY_PREFIX",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "_sequence",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_channelID",
+						"type": "uint8"
+					}
+				],
+				"name": "getDataGanerateKey",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"BEP/Demo.sol": "Demo1"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"BEP/Demo.sol": {
+			"keccak256": "0xb93374e21cd0a109abfdf18d18895a08b430576969483a28fcec2b53721548d0",
+			"urls": [
+				"bzz-raw://d957d26a4d581db63b2dc506a7e1f54ce2c193997dd9478d395c8fef9585ed65",
+				"dweb:/ipfs/QmW7VVr9M35XfrnabkNs9BK7kWGhEc8o1QFTZSqT6cVpHE"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,67 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "_data",
+						"type": "uint16"
+					}
+				],
+				"name": "getData",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "pouladzade@gmail.com",
+			"details": "The SizeOf return the size of the solidity types in byte",
+			"kind": "dev",
+			"methods": {},
+			"title": "SizeOf Copyright (c) 2016-2020 zpouladzade/Seriality",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/demo1.sol": "SizeOf"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/demo1.sol": {
+			"keccak256": "0x0908fb1567c84fcb4d4a648e119554c657230a73a654b235a7b6a7c24e5945ad",
+			"urls": [
+				"bzz-raw://92d7272878d32ef17697cdc9c28e80088cdd39f19c837d960b08edc89167b8f5",
+				"dweb:/ipfs/QmfASzJHx97x23DXu2mLJ2zF8ZsDKdn14dFM7sYZZBRV3k"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,37 @@
+{
+	"compiler": {
+		"version": "0.5.16+commit.9c3226ce"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/RLPEncode.sol": "RLPEncode"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/RLPEncode.sol": {
+			"keccak256": "0x3e65a22bbfd0b828e37cf46ac51ab7cfed41fccde6c4924d39b7bd1bba362038",
+			"urls": [
+				"bzz-raw://3e9ea2db2e5e684b680ae93e4e1ca93fac6df430886e2b004c156430eb2c77de",
+				"dweb:/ipfs/QmZyEVkxZY3PVMCJbHJX5YWUkp6C42fsRxSHCwdEHefNkD"
+			]
+		}
+	},
+	"version": 1
+}

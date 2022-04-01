@@ -1,0 +1,104 @@
+{
+	"compiler": {
+		"version": "0.5.16+commit.9c3226ce"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_len",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_memPtr",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getData",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "rlpItem",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "len",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "memPtr",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/demo1.sol": "Demo1"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/RLPDecode.sol": {
+			"keccak256": "0xe52696f0da2070940075699839ff032d969dd79f0c3c2561a3bce40271a362f4",
+			"urls": [
+				"bzz-raw://57addd0b5d72aaba118a76c6e2e91f6c7b13815eb11ab4c0b2035ebc5166cb92",
+				"dweb:/ipfs/QmQJtt7usyCySXGyr18gVikbZH6sWfzBtN9EZUr3t7pMJm"
+			]
+		},
+		"contracts/RLPEncode.sol": {
+			"keccak256": "0x284e0398fc7cce810dfdc81ff382d2f0bfdd2cb23c1e1c39affaff1720f21568",
+			"urls": [
+				"bzz-raw://14751dcb66a88dea51d3ef6148ef6e79ea11f82478a1b60598c1898f2426ac80",
+				"dweb:/ipfs/QmYxmbZpWAyTssGh3vk1i6KNcecqUtimXYowXVy5zxrHx8"
+			]
+		},
+		"contracts/demo1.sol": {
+			"keccak256": "0x67ec6e24d9d88478fdcdba3c27b79e6844659965e943b569cc3e30493b46b36c",
+			"urls": [
+				"bzz-raw://4e09863f2264fc5d9122c353b72de3c13d086b9585f631b6ce70ef1385f30cec",
+				"dweb:/ipfs/QmSc3rE5MPtwsvC4q8anjf4JkDiMUenypHYEQvszBuiHhf"
+			]
+		}
+	},
+	"version": 1
+}
